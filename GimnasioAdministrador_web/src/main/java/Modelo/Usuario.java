@@ -393,6 +393,8 @@ public class Usuario implements Serializable {
                 long duracion = membresia.getDuracion();
                 //Le damos la fecha de finalizacion segun su membresia
                 usuario.setFechaFIn(usuario.convertirDuracionAFecha(duracion));
+                //Cambiamos el estado de la membresia
+                usuario.setEstado("Activa");
                 break;
             }
             

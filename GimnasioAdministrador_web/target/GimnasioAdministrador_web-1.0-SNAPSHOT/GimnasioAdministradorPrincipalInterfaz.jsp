@@ -262,56 +262,62 @@
     <div class="modal fade" id="staticBackdropPagoMembresia" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Pago Membresia</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>El ID del usuario que va a realizar el pago es: <span id="IdUsuarioPago"></span></p>
-                    <p>El ID de la membresia que se agregara al usuario es: <span id="membresiaIdPago"></span></p>
-                    <div class="container col-md-8 my-3">   
-                        <div style="overflow-x: auto; max-height: 400px;">
-                            <table class="table table-bordered table-light my-3">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Membresia</th>
-                                        <th>Selección</th>
-                                    </tr>
-                                </thead>                            
-                                <tbody>
-                                    <%
-                                        if (listaMembresias != null) {
-                                            for (Membresia membresia : listaMembresias) {
-                                    %>
-                                    <tr>
-                                        <td><%= membresia.getId()%>  </td>
-                                        <td> <%= membresia.getNomMembresia()%> </td>
-                                        <td> 
-                                            <a class=" btn eleccion-membresiaPago" type="button" data-id="<%=membresia.getId()%>">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
-                                                <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
-                                                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
-                                                </svg>
-
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <%
-                                            }
-                                        }
-                                    %>
-
-                                </tbody>
-                            </table>
-                        </div>
+                <form action="SvPago" method="POST">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Pago Membresia</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
+                    <div class="modal-body">
 
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary">Realizar Pago</button>
-                </div>
+                        <p>El ID del usuario que va a realizar el pago es: <span id="IdUsuarioPago"></span></p>
+                        <p>El ID de la membresia que se agregara al usuario es: <span id="membresiaIdPago"></span></p>
+                        <div class="container col-md-8 my-3">   
+                            <div style="overflow-x: auto; max-height: 400px;">
+
+                                <table class="table table-bordered table-light my-3">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Membresia</th>
+                                            <th>Selección</th>
+                                        </tr>
+                                    </thead>                            
+                                    <tbody>
+                                        <%
+                                            if (listaMembresias != null) {
+                                                for (Membresia membresia : listaMembresias) {
+                                        %>
+                                        <tr>
+                                            <td><%= membresia.getId()%>  </td>
+                                            <td> <%= membresia.getNomMembresia()%> </td>
+                                            <td> 
+                                                <a class=" btn eleccion-membresiaPago" type="button" data-id="<%=membresia.getId()%>">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
+                                                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+                                                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+                                                    </svg>
+
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <%
+                                                }
+                                            }
+                                        %>
+
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary pagoConf" id="pagoo" value="realizarPago" >Realizar Pago</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -354,6 +360,26 @@
                 url: 'SvPago', // Url donde se enviara los datos(en este caso el id)
                 method: 'POST', // Método de solicitud por donde llegara la información al servlet
                 data: {idPagoUsuario: memberIdPagoUsuario}, // Datos a enviar (en este caso, el ID)
+                success: function (response) {
+                    // Manejar la respuesta del servidor si es necesario
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error al enviar la solicitud:', error);
+                }
+            });
+        });
+    </script>
+    <!-- Script para enviar la confimacion del pago de la membresia -->
+    <script>
+        $('.pagoConf').on('click', function () {
+            // Obtener la identificacion del usuario
+            const pagoConf = $('#pagoo').val();
+
+            // Envío de ID al servlet a través de AJAX (método POST)
+            $.ajax({
+                url: 'SvPago', // Url donde se enviara los datos(en este caso la verificacion de la eliminación del usuario)
+                method: 'POST', // Método de solicitud
+                data: {pagoConf: pagoConf}, // Datos a enviar (verificación para la eliminación del usuario)
                 success: function (response) {
                     // Manejar la respuesta del servidor si es necesario
                 },
