@@ -19,22 +19,7 @@
 </div>
 
 <div class="container col-md-4 my-3" >
-    <!-- Barra de búsqueda -->
-    <div class="input-group my-5 ">
-        <input type="text" class="form-control" aria-label="Text input with segmented dropdown button">
-        <button type="button" class="btn btn-outline-secondary">Buscar</button>
-        <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-            <span class="visually-hidden">Opciones de búsqueda</span>
-        </button>
-        <!-- Opciones dentro de la barra de búsqueda -->
-        <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Separated link</a></li>
-        </ul>
-    </div>
+  
 </div>
 
 <!-- Botón para hacer llamado al modal para agregar un nuevo usuario -->
